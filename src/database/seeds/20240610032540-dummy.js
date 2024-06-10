@@ -52,15 +52,19 @@ module.exports = {
     await queryInterface.bulkInsert('users', [
       {
         userid: 1,
-        name: "john doe"
+        name: "john doe",
+        email: "johndoe@gmail.com",
+        password: "$2a$10$C3qhXL.nMeunJx91EpuVwewmiwXPPECPiEZ2ye/pm9g1AiO9xopLq" // 123, 10 rounds, bcrypt
       },
       {
         userid: 2,
-        name: "john smith"
+        name: "john smith",
+        email: "johnsmitch@example.com",
+        password: "$2a$10$InHHOYfgKTFn7df/99qxKuMKGUadwefbwGYRkBge4HMQMc6D3ssF6" // pass, 10 rounds bcrypt
       }
     ])
 
-    await queryInterface.bulkInsert('bab', [
+    await queryInterface.bulkInsert('babs', [
       {
         babid: 1,
         name: "bab 1",
@@ -79,12 +83,12 @@ module.exports = {
         name: "kelas 1"
       },
       {
-        kelaseid: 2,
+        kelasid: 2,
         name: "kelas 2"
       }
     ])
 
-    await queryInterface.bulkInsert('matapelajaran', [
+    await queryInterface.bulkInsert('matapelajarans', [
       {
         matapelajaranid: 1,
         name: "matapelajaran 1"
@@ -95,20 +99,22 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('subbab', [
+    await queryInterface.bulkInsert('subbabs', [
       {
         subbabid: 1,
-        name: "subbab 1"
+        name: "subbab 1",
+        freestatus: true
       },
       {
         subbabid: 2,
-        name: "subbab 2"
+        name: "subbab 2",
+        freestatus: false
       }
     ])
 
 
     
-    await queryInterface.bulkInsert('material', [
+    await queryInterface.bulkInsert('materials', [
       {
         materialid: 1,
         name: "material 1"
@@ -119,7 +125,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('usermaterial', [
+    await queryInterface.bulkInsert('usermaterials', [
       {
         materialid: 1,
         userid: 1,
@@ -132,7 +138,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('userbab', [
+    await queryInterface.bulkInsert('userbabs', [
       {
         babid: 1,
         userid: 1,
@@ -145,7 +151,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('usersubbab', [
+    await queryInterface.bulkInsert('usersubbabs', [
       {
         subbabid: 1,
         userid: 1,
@@ -158,7 +164,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('kelasmodepembelajaran', [
+    await queryInterface.bulkInsert('kelasmodepembelajarans', [
       {
         kelasid: 1,
         modepembelajaranid: 1
@@ -169,7 +175,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert("modepembelajaran", [
+    await queryInterface.bulkInsert("modepembelajarans", [
       {
         modepembelajaranid: 1,
         name: "mode pembelajaran 1"
@@ -180,7 +186,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('modepembelajaranmatapelajaran', [
+    await queryInterface.bulkInsert('modepembelajaranmatapelajarans', [
       {
         matapelajaranid: 1,
         modepembelajaranid: 1
@@ -191,7 +197,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('subbabmaterial', [
+    await queryInterface.bulkInsert('subbabmaterials', [
       {
         subbabid: 1,
         materialid: 1
@@ -202,7 +208,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('babsubbab', [
+    await queryInterface.bulkInsert('babsubbabs', [
       {
         subbabid: 1,
         babid: 1
@@ -213,7 +219,7 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('matapelajaranbab', [
+    await queryInterface.bulkInsert('matapelajaranbabs', [
       {
         matapelajaranid: 1,
         babid: 1
