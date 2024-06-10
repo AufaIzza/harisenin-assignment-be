@@ -49,7 +49,7 @@ module.exports = {
     await usersubbab.destroy({ truncate:true})
 -
 
-    await queryInterface.bulkInsert('user', [
+    await queryInterface.bulkInsert('users', [
       {
         userid: 1,
         name: "john doe"
