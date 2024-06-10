@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      kelasmodepembelajaran.belongsTo(models.kelas, {foreignKey: "kelasid"})
+      kelasmodepembelajaran.belongsTo(models.modepembelajaran, {foreignKey: "modepembelajaranid"})
     }
   }
   kelasmodepembelajaran.init({

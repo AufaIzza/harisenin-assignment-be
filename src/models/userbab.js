@@ -11,12 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      userbab.belongsTo(models.user, {foreignKey: "userid"});
+      userbab.belongsTo(models.bab, {foreignKey: "babid"})
     }
   }
   userbab.init({
     userid: DataTypes.INTEGER,
     babid: DataTypes.INTEGER,
-    progress: DataTypes.DECIMAL
+    progress: DataTypes.DECIMAL(5,2)
   }, {
     sequelize,
     modelName: 'userbab',

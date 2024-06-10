@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      bab.hasMany(models.babsubbab, {foreignKey: "babid"})
+      bab.hasMany(models.userbab, {foreignKey: "babid"})
+      bab.hasMany(models.matapelajaranbab, {foreignKey: "babid"})
     }
   }
   bab.init({
