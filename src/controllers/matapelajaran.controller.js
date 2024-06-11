@@ -1,4 +1,4 @@
-const { kelas:kelasModel, modepembelajaran:modpemModel, matapelajaran:matpelModel, kelasmodepembelajaranmatapelajaran:big } = require('../models')
+const { kelas:kelasModel, modepembelajaran:modpemModel, matapelajaran:matpelModel } = require('../models')
 
 const index = async (req, res, _next) => {
     let que = req.query
