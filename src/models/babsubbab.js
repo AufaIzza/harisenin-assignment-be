@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   babsubbab.init({
-    babid: DataTypes.INTEGER,
-    subbabid: DataTypes.INTEGER
+    babid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
+    subbabid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'babsubbab',

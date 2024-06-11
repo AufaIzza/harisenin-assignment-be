@@ -17,7 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   subbab.init({
-    subbabid: DataTypes.INTEGER,
+    subbabid: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING,
     freestatus: DataTypes.BOOLEAN
   }, {

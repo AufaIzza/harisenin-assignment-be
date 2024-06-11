@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   modepembelajaran.init({
-    modepembelajaranid: DataTypes.INTEGER,
+    modepembelajaranid: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING
   }, {
     sequelize,

@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   modepembelajaranmatapelajaran.init({
-    modepembelajaranid: DataTypes.INTEGER,
-    matapelajaranid: DataTypes.INTEGER
+    modepembelajaranid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    matapelajaranid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'modepembelajaranmatapelajaran',

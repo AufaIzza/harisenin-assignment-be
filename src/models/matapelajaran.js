@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   matapelajaran.init({
-    matapelajaranid: DataTypes.INTEGER,
+    matapelajaranid: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING
   }, {
     sequelize,

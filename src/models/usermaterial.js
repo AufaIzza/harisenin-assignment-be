@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   usermaterial.init({
-    userid: DataTypes.INTEGER,
-    materialid: DataTypes.INTEGER,
+    userid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    materialid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,

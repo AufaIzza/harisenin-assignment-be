@@ -17,7 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   bab.init({
-    babid: DataTypes.INTEGER,
+    babid: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING,
     freeamount: DataTypes.INTEGER
   }, {

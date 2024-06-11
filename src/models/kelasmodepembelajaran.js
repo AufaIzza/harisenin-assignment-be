@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   kelasmodepembelajaran.init({
-    modepembelajaranid: DataTypes.INTEGER,
-    kelasid: DataTypes.INTEGER
+    modepembelajaranid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    kelasid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'kelasmodepembelajaran',

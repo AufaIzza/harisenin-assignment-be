@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   matapelajaranbab.init({
-    matapelajaranid: DataTypes.INTEGER,
-    babid: DataTypes.INTEGER
+    matapelajaranid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    babid:{
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'matapelajaranbab',

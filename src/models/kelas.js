@@ -15,7 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   kelas.init({
-    kelasid: DataTypes.INTEGER,
+    kelasid: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING
   }, {
     sequelize,

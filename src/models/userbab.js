@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   userbab.init({
-    userid: DataTypes.INTEGER,
-    babid: DataTypes.INTEGER,
+    userid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    babid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
     progress: DataTypes.DECIMAL(5,2)
   }, {
     sequelize,

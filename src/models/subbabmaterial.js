@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   subbabmaterial.init({
-    subbabid: DataTypes.INTEGER,
-    materialid: DataTypes.INTEGER
+    subbabid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    materialid: {
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'subbabmaterial',

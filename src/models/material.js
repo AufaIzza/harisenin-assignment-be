@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   material.init({
-    materialid: DataTypes.INTEGER,
+    materialid:{
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    } ,
     name: DataTypes.STRING
   }, {
     sequelize,
