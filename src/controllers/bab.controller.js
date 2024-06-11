@@ -7,7 +7,36 @@ const index = async (req, res, _next) => {
     let auth = req.headers.authorization
 
     if (!auth || !auth.startsWith('Bearer ')) {
-        return res.status(401).send({ message: 'No token provided' });
+        if (Object.keys(que).length > 0) {
+            if ( que.idmatapelajaran != null) {
+                let result = await babModel.findAll({
+                    include: [
+                        {
+                            model: matpelModel,
+                            where: {matapelajaranid: que.idmatapelajaran},
+                            through: { attributes: []},
+                            attributes: ["matapelajaranid", "name"]
+                        }
+                    ],
+                    attributes: ["babid", "name"]
+                })
+
+                if (result.length == 0) {
+                    return res.status(400).send({
+                        message: "Error, Query not found"
+                    })
+                }
+
+                return res.status(200).send({
+                    message: "Query Found",
+                    data: result
+                })
+            } else {
+                return res.status(400).send({
+                    message: "Error, No query given / Query not recognizeable"
+                })
+            }
+        }
     }
 
     const token = auth.split(' ')[1]
