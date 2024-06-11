@@ -1,4 +1,4 @@
-const {subbab:subbabModel, user:userModel, bab:babModel} = require("../models")
+const {material:materialModel, user:userModel, subbab:subbablModel} = require("../models")
 const jwt = require('jsonwebtoken')
 
 
@@ -8,17 +8,17 @@ const index = async (req, res, _next) => {
 
     if (auth == undefined || !auth.startsWith('Bearer ')) {
         if (Object.keys(que).length > 0) {
-            if ( que.idbab != null) {
-                let result = await subbabModel.findAll({
+            if ( que.idsubbab != null) {
+                let result = await materialModel.findAll({
                     include: [
                         {
-                            model: babModel,
-                            where: {babid: que.idbab},
+                            model: subbablModel,
+                            where: {subbabid: que.idsubbab},
                             through: { attributes: []},
-                            attributes: ["babid", "name"]
+                            attributes: ["subbabid", "name"]
                         }
                     ],
-                    attributes: ["subbabid", "name"]
+                    attributes: ["materialid", "name"]
                 })
 
                 if (result.length == 0) {
@@ -43,29 +43,30 @@ const index = async (req, res, _next) => {
         }
     }
 
+    
     const token = auth.split(' ')[1]
     jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
         if (err) {
             return res.status(401).send({ message: err });
           } else {
             if (Object.keys(que).length > 0) {
-                if ( que.idbab != null) {
-                    let result = await subbabModel.findAll({
+                if ( que.idsubbab != null) {
+                    let result = await materialModel.findAll({
                         include: [
                             {
-                                model: babModel,
-                                where: {babid: que.idbab},
+                                model: subbablModel,
+                                where: {subbabid: que.idsubbab},
                                 through: { attributes: []},
-                                attributes: ["babid", "name"]
+                                attributes: ["subbabid", "name"]
                             },
                             {
                                 model: userModel,
                                 where: {userid: user.id},
-                                through: { attributes: ["progress"]},
+                                through: { attributes: ["status"]},
                                 attributes: ["userid", "name", "email"]
                             }
                         ],
-                        attributes: ["subbabid", "name"]
+                        attributes: ["materialid", "name"]
                     })
 
                     if (result.length == 0) {

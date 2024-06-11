@@ -84,6 +84,10 @@ const index = async (req, res, _next) => {
                         message: "Error, No query given / Query not recognizeable"
                     })
                 }
+            } else {
+                return res.status(400).send({
+                    message: "Error, No query given / Query not recognizeable"
+                })
             }
         }
     })
