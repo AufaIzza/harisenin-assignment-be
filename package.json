@@ -4,6 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --watch src/ --watch package.json --watch .env",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:clean": "npx sequelize-cli db:drop && npx sequelize-cli db:create",
     "start": "node src/index.js"
   },
   "keywords": [],
