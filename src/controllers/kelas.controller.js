@@ -1,5 +1,5 @@
 
-const { kelas: kelasModel, kelasmodepembelajaran: kelasPembModel, modepembelajaran:pembModel } = require('../models')
+const { kelas: kelasModel, modepembelajaran:pembModel } = require('../models')
 
 const index = async (req, res, next) => {
     const kelas = await kelasModel.findAll({
@@ -13,7 +13,6 @@ const index = async (req, res, next) => {
         ]
     })
 
-    
         return res.status(200).send({
             message: "Kelas successful",
             data: {
