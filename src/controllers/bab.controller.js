@@ -1,4 +1,4 @@
-const {bab:babModel, userbab:userBabModel, user:userModel, matapelajaran:matpelModel, matapelajaranbab:matpelbabModel} = require("../models")
+const {bab:babModel, user:userModel, matapelajaran:matpelModel} = require("../models")
 const jwt = require('jsonwebtoken')
 
 
