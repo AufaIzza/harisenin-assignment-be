@@ -8,12 +8,16 @@ const app = express();
 
 const authRouter = require("./routes/auth.route")
 const kelasRouter = require("./routes/kelas.route")
+const matapelajaranRouter = require("./routes/matapelajaran.route")
+const babRouter = require("./routes/bab.route")
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 app.use("/api/auth", authRouter)
-app.use("/api", kelasRouter)
+app.use("/api/kelas", kelasRouter)
+app.use("/api/mata_pelajaran", matapelajaranRouter)
+app.use("/api/mata_pelajaran", babRouter)
 
 app.listen(process.env.SERVER_PORT || 3000, () => {
     console.log("server is running")

@@ -1,7 +1,7 @@
 
 const { kelas: kelasModel, modepembelajaran:pembModel } = require('../models')
 
-const index = async (req, res, next) => {
+const index = async (_req, res, _next) => {
     const kelas = await kelasModel.findAll({
         attributes: ['kelasid', 'name'],
         include: [
