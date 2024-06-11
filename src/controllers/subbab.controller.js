@@ -1,25 +1,24 @@
-const {bab:babModel, user:userModel, matapelajaran:matpelModel} = require("../models")
+const {subbab:subbabModel, user:userModel, bab:babModel} = require("../models")
 const jwt = require('jsonwebtoken')
 
 
 const index = async (req, res, _next) => {
     let que = req.query
     let auth = req.headers.authorization
-    console.log(auth)
 
-    if (!auth || !auth.startsWith('Bearer ')) {
+    if (auth == undefined || !auth.startsWith('Bearer ')) {
         if (Object.keys(que).length > 0) {
-            if ( que.idmatapelajaran != null) {
-                let result = await babModel.findAll({
+            if ( que.idbab != null) {
+                let result = await subbabModel.findAll({
                     include: [
                         {
-                            model: matpelModel,
-                            where: {matapelajaranid: que.idmatapelajaran},
+                            model: babModel,
+                            where: {babid: que.idbab},
                             through: { attributes: []},
-                            attributes: ["matapelajaranid", "name"]
+                            attributes: ["babid", "name"]
                         }
                     ],
-                    attributes: ["babid", "name"]
+                    attributes: ["subbabid", "name"]
                 })
 
                 if (result.length == 0) {
@@ -50,14 +49,14 @@ const index = async (req, res, _next) => {
             return res.status(401).send({ message: err });
           } else {
             if (Object.keys(que).length > 0) {
-                if ( que.idmatapelajaran != null) {
-                    let result = await babModel.findAll({
+                if ( que.idbab != null) {
+                    let result = await subbabModel.findAll({
                         include: [
                             {
-                                model: matpelModel,
-                                where: {matapelajaranid: que.idmatapelajaran},
+                                model: babModel,
+                                where: {babid: que.idbab},
                                 through: { attributes: []},
-                                attributes: ["matapelajaranid", "name"]
+                                attributes: ["babid", "name"]
                             },
                             {
                                 model: userModel,
@@ -66,7 +65,7 @@ const index = async (req, res, _next) => {
                                 attributes: ["userid", "name", "email"]
                             }
                         ],
-                        attributes: ["babid", "name"]
+                        attributes: ["subbabid", "name"]
                     })
 
                     if (result.length == 0) {
