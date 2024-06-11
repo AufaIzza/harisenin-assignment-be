@@ -8,7 +8,6 @@ const register = async (req, res, next) => {
 
     const passwordhashed = await bcrypt.hash(password, 10);
 
-
     const user = await UserModel.create({
         name,
         email,
@@ -21,7 +20,8 @@ const register = async (req, res, next) => {
     return res.status(200).send({
         message: "Register successful",
         data: {
-            user
+            name: user.name,
+            email: user.email
         }
     })
 }

@@ -52,16 +52,16 @@ module.exports = {
     await queryInterface.bulkInsert('users', [
       {
         userid: 1,
-        name: "john doe",
-        email: "johndoe@gmail.com",
-        password: "$2a$10$C3qhXL.nMeunJx91EpuVwewmiwXPPECPiEZ2ye/pm9g1AiO9xopLq" // 123, 10 rounds, bcrypt
+        name: "brandon",
+        email: "bran@love.com",
+        password: "$2a$10$6WKOwdg51mnAEOrqMI/HPuvv79pJGdLWQ1PXKa/wYI5W80uG3py4m" // lain, 10 rounds bcrypt
       },
       {
         userid: 2,
         name: "john smith",
         email: "johnsmitch@example.com",
         password: "$2a$10$InHHOYfgKTFn7df/99qxKuMKGUadwefbwGYRkBge4HMQMc6D3ssF6" // pass, 10 rounds bcrypt
-      }
+      },
     ])
 
     await queryInterface.bulkInsert('babs', [
