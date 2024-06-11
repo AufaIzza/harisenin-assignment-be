@@ -3,13 +3,11 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('modepembelajarans', {
-      id: {
+
+      modepembelajaranid: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      modepembelajaranid: {
         type: Sequelize.INTEGER
       },
       name: {

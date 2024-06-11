@@ -3,16 +3,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('babsubbabs', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      babid: {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      babid: {
-        type: Sequelize.INTEGER
-      },
       subbabid: {
+        primaryKey: true,
         type: Sequelize.INTEGER
       },
       createdAt: {

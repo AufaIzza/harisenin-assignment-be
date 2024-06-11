@@ -3,13 +3,10 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('subbabs', {
-      id: {
+      subbabid: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      subbabid: {
         type: Sequelize.INTEGER
       },
       name: {
