@@ -172,6 +172,10 @@ module.exports = {
       {
         kelasid: 2,
         modepembelajaranid: 2
+      },
+      {
+        kelasid: 1,
+        modepembelajaranid: 2
       }
     ])
 

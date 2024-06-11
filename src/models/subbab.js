@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      subbab.hasMany(models.subbabmaterial, {foreignKey: "subbabid"})
-      subbab.hasMany(models.babsubbab, {foreignKey: "subbabid"})
-      subbab.hasMany(models.usersubbab, {foreignKey: "subbabid"})
+      subbab.belongsToMany(models.material, {through: models.subbabmaterial, foreignKey: "subbabid"})
+      subbab.belongsToMany(models.bab, {through: models.babsubbab, foreignKey: "subbabid"})
+      subbab.belongsToMany(models.user, {through: models.usersubbab, foreignKey: "subbabid"})
     }
   }
   subbab.init({
