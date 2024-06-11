@@ -17,7 +17,7 @@ app.use(express.json())
 app.use("/api/auth", authRouter)
 app.use("/api/kelas", kelasRouter)
 app.use("/api/mata_pelajaran", matapelajaranRouter)
-app.use("/api/mata_pelajaran", babRouter)
+app.use("/api/bab", babRouter)
 
 app.listen(process.env.SERVER_PORT || 3000, () => {
     console.log("server is running")
