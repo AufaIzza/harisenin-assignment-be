@@ -2,7 +2,11 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('modepembelajaranmatapelajarans', {
+    await queryInterface.createTable('kelasmodepembelajaranmatapelajarans', {
+      kelasid: {
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       modepembelajaranid: {
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -24,6 +28,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('modepembelajaranmatapelajarans');
+    await queryInterface.dropTable('kelasmodepembelajaranmatapelajarans');
   }
 };

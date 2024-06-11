@@ -9,7 +9,7 @@ const {
   matapelajaranbab,
   material,
   modepembelajaran,
-  modepembelajaranmatapelajaran,
+  kelasmodepembelajaranmatapelajaran,
   subbab,
   subbabmaterial,
   user,
@@ -40,7 +40,7 @@ module.exports = {
     await matapelajaranbab.destroy({ truncate:true})
     await material.destroy({ truncate:true})
     await modepembelajaran.destroy({ truncate:true})
-    await modepembelajaranmatapelajaran.destroy({ truncate:true})
+    await kelasmodepembelajaranmatapelajaran.destroy({ truncate:true})
     await subbab.destroy({ truncate:true})
     await subbabmaterial.destroy({ truncate:true})
     await user.destroy({ truncate:true})
@@ -96,6 +96,10 @@ module.exports = {
       {
         matapelajaranid: 2,
         name: "matapelajaran 2"
+      },
+      {
+        matapelajaranid: 3,
+        name: "matapelajaran 3"
       }
     ])
 
@@ -190,15 +194,22 @@ module.exports = {
       }
     ])
 
-    await queryInterface.bulkInsert('modepembelajaranmatapelajarans', [
+    await queryInterface.bulkInsert('kelasmodepembelajaranmatapelajarans', [
       {
+        kelasid: 1,
         matapelajaranid: 1,
         modepembelajaranid: 1
       },
       {
+        kelasid: 1,
         matapelajaranid: 2,
         modepembelajaranid: 2
-      }
+      },
+      {
+        kelasid: 2,
+        matapelajaranid: 3,
+        modepembelajaranid: 1
+      },
     ])
 
     await queryInterface.bulkInsert('subbabmaterials', [

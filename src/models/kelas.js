@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       kelas.belongsToMany(models.modepembelajaran, {through: models.kelasmodepembelajaran ,foreignKey:"kelasid"})
+      kelas.belongsToMany(models.matapelajaran, {through: models.kelasmodepembelajaranmatapelajaran ,foreignKey:"kelasid"})
     }
   }
   kelas.init({
