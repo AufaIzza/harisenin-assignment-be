@@ -3,6 +3,34 @@ const jwt = require("jsonwebtoken")
 
 const { user: UserModel } = require('../models')
 
+const register = async (req, res, next) => {
+    const {name, email, password} =  req.body;
+
+    const passwordhashed = await bcrypt.hash(password, 10);
+    
+
+
+    await UserModel.create({
+        name: name,
+        email: email,
+        password: passwordhashed
+    }).then((user) => {
+        if (!user) {
+            return res.status(500).send({
+                message: "Failed to register user",
+                data: null
+            })
+        }
+
+        return res.status(201).send({
+            message: "User registered successfully",
+            data: null
+        })
+    }).catch((err) => {
+        next(err)
+    })
+}
+
 const login = async (req, res, next) => {
     const { email, password } = req.body;
 
@@ -18,13 +46,14 @@ const login = async (req, res, next) => {
     }
 
     const data = {
-        id: user.id,
-        email: user.email
+        id: user.userid,
+        email: user.email,
+        name: user.name
     }
 
     const token = jwt.sign(data, process.env.JWT_SECRET)
 
-    return res.send({
+    return res.status(200).send({
         message: "Login successful",
         data: {
             token: token
@@ -32,4 +61,6 @@ const login = async (req, res, next) => {
     })
 }
 
-module.exports = { login }
+
+
+module.exports = { login, register }
